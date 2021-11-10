@@ -25,6 +25,9 @@
           <%= link_to book_path(book.id) do %>
             コメント数：<%= book.book_comments.count %>
           <% end %>
+        </td>]
+        <td>
+          <%= book.impressionist_count(:filter=>:session_hash) %>
         </td>
       </tr>
     <% end %>

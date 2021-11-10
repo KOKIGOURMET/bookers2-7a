@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  impressionist :actions=> [:show]
 
   def index
     to  = Time.current.at_end_of_day
@@ -30,6 +31,7 @@ class BooksController < ApplicationController
     @new_book = Book.new
     @user = @book.user
     @book_comment = BookComment.new
+    impressionist(@book, nil, unique: [:session_hash.to_s])
   end
 
   def edit
